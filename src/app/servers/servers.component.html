@@ -3,7 +3,7 @@
 <input 
   type="text"
   class="form-control"
-  (input)="onCreateServerName($event)"
+  [(ngModel)]="serverName"
 >
 <p>{{ serverName }}</p>
 <button 

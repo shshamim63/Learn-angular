@@ -9,7 +9,7 @@ import { flatten } from '@angular/compiler';
 export class ServersComponent implements OnInit {
   allowStatus: boolean = true;
   serverIsListening: string = 'Server Is not listening press the button to enable';
-  serverName: string = '';
+  serverName: string = 'Initial Name';
   constructor() {
     setTimeout(() => {
       this.allowStatus = false;
@@ -22,9 +22,5 @@ export class ServersComponent implements OnInit {
 
   onServerListening() {
     this.serverIsListening = 'Server is listening...';
-  }
-  
-  onCreateServerName(event: Event) {
-    this.serverName = (<HTMLInputElement>event.target).value;
   }
 }
