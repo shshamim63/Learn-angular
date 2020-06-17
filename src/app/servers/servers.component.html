@@ -1,4 +1,19 @@
-<button class="btn btn-primary small mb-2" [disabled]="allowStatus">Shutdown Server</button>
+<h3 class="bg-success">Please set a Server name before firing the server</h3>
+<label>Server Name</label>
+<input 
+  type="text"
+  class="form-control"
+  (input)="onCreateServerName($event)"
+>
+<p>{{ serverName }}</p>
+<button 
+  class="btn btn-primary small mb-2" 
+  [disabled]="allowStatus"
+  (click)="onServerListening()"
+>
+  Shutdown Server
+</button>
+<p>{{ serverIsListening }}</p>
 <div class="server-container">
   <app-server></app-server>
   <app-server></app-server>  

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { flatten } from '@angular/compiler';
 
 @Component({
   selector: 'app-servers',
@@ -6,14 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./servers.component.css']
 })
 export class ServersComponent implements OnInit {
-  allowStatus = false;
+  allowStatus: boolean = true;
+  serverIsListening: string = 'Server Is not listening press the button to enable';
+  serverName: string = '';
   constructor() {
     setTimeout(() => {
-      this.allowStatus = true;
+      this.allowStatus = false;
     }, 2000);
+
   }
   
   ngOnInit(): void {
   }
 
+  onServerListening() {
+    this.serverIsListening = 'Server is listening...';
+  }
+  
+  onCreateServerName(event: Event) {
+    this.serverName = (<HTMLInputElement>event.target).value;
+  }
 }
